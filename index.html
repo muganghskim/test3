@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tngt 메인 반응형</title>
+    <style>
+        /* css reset */
+        * {margin: 0; padding: 0;}
+        ul,ol,li {list-style: none;}
+        a {text-decoration: none;}
+        img {vertical-align: middle;}
+        body {line-height: 1;}
+        /* 상단영역 데스크탑 */
+        .h-top {background: #6a747d; display: flex; justify-content: center;}
+        .h-top .center {width: 940px; display: flex; justify-content: space-between; align-items: center;}
+        
+        .h-top .left_menu {display: flex; }
+        .h-top .left_menu li {width: 183px; height: 37px;}
+        .h-top .left_menu li a {display: flex; height: 100%; justify-content: center; align-items: center; 
+                                font-size: 13px; font-weight: bold;}
+        .h-top .left_menu li:nth-child(1) a {background: #fff; color: #000;}
+        .h-top .left_menu li:nth-child(2) a {background: #3e4347; color: #fff;}
+
+        .h-top .right_menu {display: flex; margin-right: 70px;}
+        .h-top .right_menu li {margin-left: 15px;}
+        .h-top .right_menu li a {color: #fff; font-size: 13px;}
+
+        .h-bot {border-bottom: 1px solid #ddd; display: flex; justify-content: center;}
+        .h-bot .center {width: 940px; display: flex; justify-content: space-between; align-items: center;}
+        .h-bot .event {margin-top: 5px;}
+
+        .h-bot .gnb {display: flex;}
+        .h-bot .gnb li {margin: 0 30px;}
+        .h-bot .gnb li a {color: #626060; font-weight: bold;}
+        .h-bot .m_btn {display: none;}
+
+        /* 중간영역 데스크탑 */
+        .new_prd {width: 940px; margin: 50px auto 0;}
+        .title {font-size: 17px; margin-bottom: 6px;}
+        .title::before {content: ""; display: block; height: 2px; background: #000; margin-bottom: 17px;}
+        .new_prd .items h3 {font-size: 14px; margin-top: 22px; margin-bottom: 11px; color: #333;}
+        .new_prd .items p {font-size: 13px; line-height: 20px; color: #555;}
+        .new_prd .title::before {width: 68px;}
+        
+        .new_prd .prd_list {display: flex;}
+        .new_prd .prd_list .items {width: 300px; margin-right: 20px;}
+        .new_prd .prd_list .items:last-child {margin-right: 0;}
+
+        /* 중간영역 2,3 데스크탑 */
+
+        .new_com {width: 940px; margin: 57px auto 0; display: flex; justify-content: space-between;}
+        .news {width: 460px; position: relative;}
+        .news .title::before {width: 50px;}
+        .news .more {position: absolute; right: 2px; top: 24px; font-size: 11px; color: #777;}
+        .news .promo {display: flex; justify-content: space-between; margin-top: 12px;}
+        .news .promo .evt_ban img {width: 100%;}
+        .community {width: 460px;}
+        .community .title::before {width: 75px;}
+        .community .notice li {display: flex; justify-content: space-between; margin-top: 15px;}
+        .community .notice li a {font-size: 13px; color: #666;}
+        .community .notice li span {font-size: 13px; color: #666;}
+
+        /* 하단영역 데스크탑 */
+
+        .f-top {background: #373737; margin-top: 95px;}
+        .f-top .center {width: 940px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;} 
+        .f-top .center .f-menu {display: flex;}
+        .f-top .center .f-menu li {margin-right: 40px; line-height: 46px;}
+        .f-top .center .f-menu li a {color: #fff; font-weight: bold;}
+        .f-top .center .family {color: #fff;}
+
+        .f-bot {background: #2f2f2f; padding: 45px 0 40px;}
+        .f-bot .center {width: 940px; margin: 0 auto;}
+        .f-bot .center .f-copy {color: #fff;}
+        .f-bot .center .f-copy p:first-child {margin-bottom: 15px;}
+
+
+
+        /* 상단영역 반응형 960화면 이하 */
+        @media screen and (max-width:960px)
+        {
+            .h-top {display: none;}
+            
+            .h-bot .center {width: 100%; justify-content: flex-start; position: relative;}
+            .h-bot .logo {margin-right: 50px;}
+            .h-bot .gnb {display: none;}
+            .h-bot .m_btn {display: block; position: absolute; right: 15px; top: 50%; transform: translateY(-50%);}
+            
+            /* 중간영역 반응형 960이하 */
+            .new_prd {width: 100%; padding: 0 10px; box-sizing: border-box; margin: 30px auto 0;}
+            .new_prd .prd_list .items {width: 30%; margin-right: 5%;}
+            .new_prd .prd_list .items img {width: 100%;}
+
+            /* 중간영역 2,3 반응형 960이하 */
+            .new_com {width: 100%; padding: 0 10px; box-sizing: border-box; margin: 28px auto 0; flex-direction: column;}
+            .news {width: 100%;}
+            .news .promo .evt_ban {width: 48%;}
+            .community {width: 100%; margin-top: 35px;}
+            
+            /* 하단영역 반응형 960 이하  */
+            .f-top {margin-top: 25px;}
+            .f-top .center {width: 100%; padding: 0 10px; box-sizing: border-box;}
+            .f-bot .center {width: 100%; padding-left: 30px; box-sizing: border-box;}
+        }
+        /* 상단영역 반응형 640화면 이하 */
+        @media screen and (max-width:640px)
+        {
+           .h-bot .event {display: none;}
+           .h-bot .center {padding: 25px 0 10px;}
+           
+           /* 중간영역 반응형 640이하 */
+           .new_prd .prd_list {flex-direction: column;}
+           .new_prd .prd_list .items {width: 100%; margin-right: 0; margin-bottom: 25px;}
+           .new_prd .prd_list .items p br {display: none;}
+
+           /* 하단영역 반응형 640이하 */
+           .f-menu li:nth-child(2), .f-menu li:nth-child(3) {display: none;}
+        }
+        /* 1260 768 */
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="h-top">
+                <div class="center">
+                    <ul class="left_menu">
+                        <li><a href="#">TNGT MALL</a></li>
+                        <li><a href="#">ABOUT TNGT</a></li>
+                    </ul>
+                    <ul class="right_menu">
+                        <li><a href="#">LOGIN</a></li>
+                        <li><a href="#">JOIN</a></li>
+                        <li><a href="#">ORDER LIST</a></li>
+                        <li><a href="#">CUSTOMER CENTER</a></li>
+                        <li><a href="#">CART</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="h-bot">
+                <div class="center">
+                    <h1 class="logo"><a href="#"><img src="img/logo.png"></a></h1>
+                    <div class="event"><a href="#"><img src="img/visualHeader.png"></a></div>
+                    <ul class="gnb">
+                        <li><a href="#">About TG</a></li>
+                        <li><a href="#">How to wear</a></li>
+                        <li><a href="#">Look Book</a></li>
+                        <li><a href="#">Campaign</a></li>
+                    </ul>
+                    <a class="m_btn" href="#"><img src="img/more.png"></a>
+                </div>
+            </div>
+        </div>
+        <div id="container">
+            <div class="new_prd">
+                <h2 class="title">New Products</h2>
+                <div class="prd_list">
+                    <div class="items">
+                        <a href="#">
+                            <img src="img/pic2_1.png">
+                            <h3>컨텐츠 제목</h3>
+                            <P>컨텐츠 상품 세부 텍스트입니다.<br>두번째 줄 텍스트입니다.</P>
+                        </a>
+                    </div>
+                    <div class="items">
+                        <a href="#">
+                            <img src="img/pic2_2.png">
+                            <h3>컨텐츠 제목</h3>
+                            <P>컨텐츠 상품 세부 텍스트입니다.<br>두번째 줄 텍스트입니다.</P>
+                        </a>
+                    </div>
+                    <div class="items">
+                        <a href="#">
+                            <img src="img/pic2_3.png">
+                            <h3>컨텐츠 제목</h3>
+                            <P>컨텐츠 상품 세부 텍스트입니다.<br>두번째 줄 텍스트입니다.</P>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="new_com">
+                <div class="news">
+                    <h2 class="title">News</h2>
+                    <a class="more" href="#">MORE +</a>
+                    <div class="promo">
+                        <div class="evt_ban">
+                            <a href="#"><img src="img/pic3_1.png"></a>
+                        </div>
+                        <div class="evt_ban">
+                            <a href="#"><img src="img/pic3_2.png"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="community">
+                    <h2 class="title">Community</h2>
+                    <ul class="notice">
+                        <li><a href="#">[Event]최신 공지글 제목1</a><span>2022-07-28</span></li>
+                        <li><a href="#">[Event]최신 공지글 제목2</a><span>2022-07-28</span></li>
+                        <li><a href="#">[Event]최신 공지글 제목3</a><span>2022-07-28</span></li>
+                        <li><a href="#">[Event]최신 공지글 제목4</a><span>2022-07-28</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="f-top">
+                <div class="center">
+                    <ul class="f-menu">
+                        <li><a href="#">개인정보취급방침</a></li>
+                        <li><a href="#">개인정보처리지침</a></li>
+                        <li><a href="#">고객센터</a></li>
+                    </ul>
+                    <a class="family" href="#">FAMILY SITE</a>
+                </div>
+            </div>
+            <div class="f-bot">
+                <div class="center">
+                    <div class="f-copy">
+                        <p>고객센터 : 국내 1800-1111 / 해외 82-2-3489-1000<br>
+                           사업자번호 104-86-56659 통신판매업신고번호 제 2011-서울중구-0331호</p>
+                        <p>COPYRIGHT 016 TNGT LF FASHION ALL RIGHT RESERVED</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
